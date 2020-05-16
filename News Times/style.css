@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.headline {
+  font-style: italic;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.story {
+  border: 1px solid gray;
+  padding: 0 10px;
+}
+
+.quarter {
+  width: 25%;
+}
+
+.half {
+  width: 50%;
+}
+
+.three-quarter {
+  width: 75%;
+}
+
+.image {
+  width: 100%;
+}
+
+.bottom-story {
+  width: 33%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: darkslategray;
+  padding-left: 20px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+.link-sports {
+  background-color: red;
+}
+
+.link-politics {
+  background-color: khaki;
+}
+.link-technology {
+  background-color: lemonchiffon;
+}
+.link-local {
+  background-color: lightseagreen;
+}
+.link-opinion {
+  background-color: lightskyblue;
+}
