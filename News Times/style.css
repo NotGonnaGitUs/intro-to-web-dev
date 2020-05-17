@@ -2,10 +2,16 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 5px;
+}
+
 .title {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Great Vibes", cursive;
   font-style: italic;
   text-align: center;
+  font-size: 60px;
+  margin: 60px 0px;
 }
 
 .headline {
@@ -21,9 +27,13 @@
 
 .story {
   border: 1px solid gray;
-  padding: 0 10px;
+  padding: 5px;
 }
 
+.story-text {
+  line-height: 1.5;
+  font-size: 18px;
+}
 .quarter {
   width: 25%;
 }
@@ -72,7 +82,7 @@
 .nav-link:hover {
   text-decoration: underline;
 }
-.link-sports {
+/* .link-sports {
   background-color: red;
 }
 
@@ -87,4 +97,20 @@
 }
 .link-opinion {
   background-color: lightskyblue;
+} */
+
+.box:nth-child(1) {
+  background-color: khaki;
+}
+.box:nth-child(2) {
+  background-color: lemonchiffon;
+}
+.box:nth-child(3) {
+  background-color: lightseagreen;
+}
+.box:nth-child(4) {
+  background-color: lightskyblue;
+}
+.box:nth-child(5) {
+  background-color: lightsalmon;
 }
