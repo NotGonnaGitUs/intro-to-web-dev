@@ -69,6 +69,7 @@ body {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
+  /* can also use flex:1 */
 }
 
 .nav-link {
