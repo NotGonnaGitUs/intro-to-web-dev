@@ -1,0 +1,9 @@
+.doggos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.doggo-img {
+  max-width: 25%;
+  background: url("./805.gif") center no-repeat;
+}
