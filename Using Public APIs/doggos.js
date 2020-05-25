@@ -14,6 +14,7 @@ function populateBreeds() {
       return processingPromise;
     })
     .then(function (processedResponse) {
+      // Super cool! Gets all the keys as an array which then can be used to loop
       all_breeds = Object.keys(processedResponse.message);
       console.log(all_breeds);
       all_breeds.forEach((element) => {

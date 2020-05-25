@@ -6,4 +6,5 @@
 .doggo-img {
   max-width: 25%;
   background: url("./805.gif") center no-repeat;
+  margin: 2px;
 }
