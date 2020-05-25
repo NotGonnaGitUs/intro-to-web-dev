@@ -4,11 +4,12 @@
 
 .body {
   font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-.calculator-box {
+.calc {
   width: 400px;
-  height: 600px;
   display: flex;
   background-color: #333;
   border: 2px solid black;
@@ -18,39 +19,52 @@
   justify-content: center;
 }
 
-.row {
+.calc-row {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   margin-bottom: 0.5%;
 }
 
-.result {
-  font-size: 30px;
+.screen {
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
   color: white;
   width: 100%;
   text-align: right;
+  padding: 20px 5px;
 }
 
 .button {
   font-size: 30px;
+  height: 100px;
   width: 24.5%;
+  border: none;
+  border-radius: 0;
   font-weight: bold;
   background-color: #d8d9db;
-}
-
-.button:hover {
-  background-color: #ebebeb;
   cursor: pointer;
 }
+
 .button:last-child {
   background-color: #df974c;
   color: white;
 }
-.button:last-child:hover {
-  background-color: #dba974;
+
+.button:hover {
+  background-color: #ebebeb;
+}
+.button:active {
+  background-color: #bbbcbe;
 }
 
+.button:last-child:hover {
+  background-color: #dfb07e;
+}
+
+.button:last-child:active {
+  background-color: #dd8d37;
+}
 .size-1 {
   flex: 1;
 }
@@ -59,9 +73,9 @@
 }
 
 .half {
-  width: 49.5%;
+  width: 49.7%;
 }
 
 .three-fourth {
-  width: 74.5%;
+  width: 74.8%;
 }

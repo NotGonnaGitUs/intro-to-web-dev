@@ -1,47 +1,84 @@
-let last_result = 1;
+let runningTotal = 0;
+let buffer = "0";
+let previousOperator = null;
+const screen = document.querySelector(".screen");
+
+function buttonClick(value) {
+  if (isNaN(parseInt(value))) {
+    handleSymbol(value);
+  } else {
+    handleNumber(value);
+  }
+  rerender();
+}
+
 document
-  .querySelector(".calculator-box")
+  .querySelector(".calc-buttons")
   .addEventListener("click", function (event) {
-    result = document.querySelector(".result");
-    button_clicked = event.target.innerText;
-    if (
-      button_clicked === "X" ||
-      button_clicked === "÷" ||
-      button_clicked === "+" ||
-      button_clicked === "-"
-    ) {
-      operator = button_clicked;
-      last_result = parseInt(result.innerText);
-      console.log(`Operator identified! Last result is ${last_result}`);
-      result.innerText = "0";
-    } else if (button_clicked === "C") {
-      result.innerText = "0";
-      last_result = 0;
-    } else if (button_clicked === "=") {
-      const current_val = parseInt(result.innerText);
-      if (operator === "X") {
-        answer = last_result * current_val;
-      } else if (operator === "÷") {
-        answer = last_result / current_val;
-      } else if (operator === "+") {
-        answer = last_result + current_val;
-      } else if (operator === "-") {
-        answer = last_result - current_val;
-      }
-      console.log(
-        `Calculating.... last result ${last_result}, ${operator}, ${current_val}`
-      );
-      result.innerText = answer;
-
-      //   console.log("Lets calculate!");
-    } else if (button_clicked === "←") {
-      result.innerText = result.innerText.substring(
-        0,
-        result.innerText.length - 1
-      );
-    } else {
-      result.innerText += button_clicked;
-    }
-
-    // console.log(`last result ${last_result}, current_button${button_clicked}`);
+    buttonClick(event.target.innerText);
   });
+
+function handleNumber(value) {
+  if (buffer === "0") {
+    buffer = value;
+  } else {
+    buffer += value;
+  }
+}
+
+function handleSymbol(value) {
+  switch (value) {
+    case "C":
+      buffer = "0";
+      runningTotal = 0;
+      previousOperator === null;
+      break;
+    case "=":
+      if (previousOperator === null) {
+        return;
+      }
+      flushOperation(parseInt(buffer));
+      previousOperator = null;
+      buffer = "" + runningTotal;
+      runningTotal = 0;
+      break;
+
+    case "←":
+      if (buffer.length === 1) {
+        buffer = "0";
+      } else {
+        buffer = buffer.substring(0, buffer.length - 1);
+      }
+      break;
+    default:
+      handleMath(value);
+      break;
+  }
+}
+
+function handleMath(value) {
+  const intBuffer = parseInt(buffer);
+  if (runningTotal === 0) {
+    runningTotal = intBuffer;
+  } else {
+    flushOperation(intBuffer);
+  }
+
+  previousOperator = value;
+  buffer = "0";
+}
+
+function flushOperation(intBuffer) {
+  if (previousOperator === "+") {
+    runningTotal += intBuffer;
+  } else if (previousOperator === "-") {
+    runningTotal -= intBuffer;
+  } else if (previousOperator === "×") {
+    runningTotal *= intBuffer;
+  } else {
+    runningTotal /= intBuffer;
+  }
+}
+function rerender() {
+  screen.innerText = buffer;
+}
